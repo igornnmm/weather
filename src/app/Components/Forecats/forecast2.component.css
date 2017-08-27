@@ -1,0 +1,13 @@
+/* Structure */
+.example-container {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+}
+
+.my-table {
+    width: 100%;
+}
+.my-table td {
+    text-align: center;
+}
