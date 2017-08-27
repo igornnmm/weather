@@ -1,1 +1,49 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+/* Structure */
+.example-container {
+    display: flex;
+    flex-direction: column;
+    max-height: 500px;
+    width: 500px;
+}
+
+/*
+ * Styles to make the demo's cdk-table match the material design spec
+ * https://material.io/guidelines/components/data-tables.html
+ */
+.example-table {
+    flex: 1 1 auto;
+    overflow: auto;
+}
+
+.example-header-row, .example-row {
+    display: flex;
+    border-bottom: 1px solid #ccc;
+    align-items: center;
+
+    padding: 0 8px;
+}
+
+.example-cell, .example-header-cell {
+    flex: 1;
+}
+
+.example-header-cell {
+    font-size: 12px;
+    font-weight: bold;
+    color: rgba(0, 0, 0, 0.54);
+}
+
+.example-cell {
+    font-size: 13px;
+    color: rgba(0, 0, 0, 0.87);
+}
+
+.my-table {
+    width: 100%;
+}
+.my-table td {
+    text-align: center;
+}
