@@ -1,0 +1,27 @@
+<div class="example-container mat-elevation-z8">
+    <md-table #table [dataSource]="dataSource">
+
+        <ng-container cdkColumnDef="date">
+            <md-header-cell *cdkHeaderCellDef> Date </md-header-cell>
+            <md-cell *cdkCellDef="let row"> {{row.date}} </md-cell>
+        </ng-container>
+
+        <ng-container cdkColumnDef="code">
+            <md-header-cell *cdkHeaderCellDef>  </md-header-cell>
+            <md-cell *cdkCellDef="let row"> <img src="{{getIcon(row.code)}}" width="32">  </md-cell>
+        </ng-container>
+
+        <ng-container cdkColumnDef="high">
+            <md-header-cell *cdkHeaderCellDef> High Temp </md-header-cell>
+            <md-cell *cdkCellDef="let row"> {{row.high}} </md-cell>
+        </ng-container>
+
+        <ng-container cdkColumnDef="low">
+            <md-header-cell *cdkHeaderCellDef> Low Temp </md-header-cell>
+            <md-cell *cdkCellDef="let row"> {{row.low}} </md-cell>
+        </ng-container>
+
+        <md-header-row *cdkHeaderRowDef="displayedColumns"></md-header-row>
+        <md-row *cdkRowDef="let row; columns: displayedColumns;"></md-row>
+    </md-table>
+</div>

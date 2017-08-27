@@ -1,0 +1,15 @@
+/* Structure */
+.example-container {
+    display: flex;
+    flex-direction: column;
+    max-height: 500px;
+    width: 400px;
+    margin-top: 20px;
+}
+
+.my-table {
+    width: 100%;
+}
+.my-table td {
+    text-align: center;
+}

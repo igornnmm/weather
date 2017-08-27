@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { HttpService } from "../Services/http.service";
+import { HttpService } from "../../Services/http.service";
 
 const ICON = {
     '34': 'https://www.yahoo.com/sy/os/weather/1.0.1/shadow_icon/60x60/fair_day@2x.png',
@@ -15,25 +15,9 @@ const ICON = {
 };
 
 @Component({
-    selector: 'forecast',
-    template: `
-        <div class="example-container mat-elevation-z8">
-            <table class="my-table">
-                <tr>
-                    <th>date</th>
-                    <th>code</th>
-                    <th>high</th>
-                    <th>low</th>
-                </tr>
-                <tr *ngFor="let day of days">
-                    <td>{{day.date}}</td>
-                    <td><img src="{{getIcon(day.code)}}" width="32"></td>
-                    <td>{{day.high}}</td>
-                    <td>{{day.low}}</td>
-                </tr>
-            </table>
-        </div>
-    `
+    selector: 'forecast2',
+    templateUrl: './forecast2.component.html',
+    styleUrls: ['./forecast2.component.css']
 })
 export class Forecast2Component {
 

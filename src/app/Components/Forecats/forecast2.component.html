@@ -1,0 +1,16 @@
+<div class="example-container mat-elevation-z8">
+    <table class="my-table">
+        <tr>
+            <th>date</th>
+            <th>code</th>
+            <th>high</th>
+            <th>low</th>
+        </tr>
+        <tr *ngFor="let day of days">
+            <td>{{day.date}}</td>
+            <td><img src="{{getIcon(day.code)}}" width="32"></td>
+            <td>{{day.high}}</td>
+            <td>{{day.low}}</td>
+        </tr>
+    </table>
+</div>

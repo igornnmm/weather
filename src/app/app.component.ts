@@ -4,18 +4,7 @@ import { HttpService } from './Services/http.service';
 
 @Component({
   selector: 'my-app',
-  template: `
-    <form class="example-form">
-        <md-input-container>
-            <input mdInput placeholder="City:" name="city" [(ngModel)]="city">
-        </md-input-container>
-        <button md-mini-fab (click)="submit(city)"><md-icon>send</md-icon></button>
-    </form>
-    
-    <div *ngIf="done">
-        <location>load</location>
-    </div>
-  `
+  templateUrl: './app.component.html'
 })
 
 export class AppComponent {

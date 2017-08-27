@@ -3,7 +3,7 @@ import {DataSource} from '@angular/cdk';
 import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 import {Observable} from 'rxjs/Observable';
 
-import {HttpService} from "../Services/http.service";
+import {HttpService} from "../../Services/http.service";
 
 const ICON = {
     '34': 'https://www.yahoo.com/sy/os/weather/1.0.1/shadow_icon/60x60/fair_day@2x.png',
@@ -18,64 +18,26 @@ const ICON = {
     '4':  'https://s.yimg.com/os/weather/1.0.1/shadow_icon/60x60/thundershowers_day_night@2x.png'
 };
 
-
-
 @Component({
     selector: 'forecast',
-    template: `
-start tbl
-        <div class="example-container mat-elevation-z8">
-            <md-table #table [dataSource]="dataSource">
-
-                <ng-container cdkColumnDef="date">
-                    <md-header-cell *cdkHeaderCellDef> Date </md-header-cell>
-                    <md-cell *cdkCellDef="let row"> {{row.date}} </md-cell>
-                </ng-container>
-
-                <ng-container cdkColumnDef="code">
-                    <md-header-cell *cdkHeaderCellDef>  </md-header-cell>
-                    <md-cell *cdkCellDef="let row"> <img src="{{getIcon(row.code)}}" width="32">  </md-cell>
-                </ng-container>
-
-                <ng-container cdkColumnDef="high">
-                    <md-header-cell *cdkHeaderCellDef> High Temp </md-header-cell>
-                    <md-cell *cdkCellDef="let row"> {{row.high}} </md-cell>
-                </ng-container>
-
-                <ng-container cdkColumnDef="low">
-                    <md-header-cell *cdkHeaderCellDef> Low Temp </md-header-cell>
-                    <md-cell *cdkCellDef="let row"> {{row.low}} </md-cell>
-                </ng-container>
-
-                <md-header-row *cdkHeaderRowDef="displayedColumns"></md-header-row>
-                <md-row *cdkRowDef="let row; columns: displayedColumns;"></md-row>
-            </md-table>
-        </div>
-end tbl        
-        `
-
+    templateUrl: './forecast.component.html',
+    styleUrls: ['./forecast.component.css']
 })
 export class ForecastComponent {
 
-    constructor(private httpService: HttpService){console.log(this.httpService.getData('forecast')) }
+    constructor(private httpService: HttpService){ }
 
     getIcon(code:number) {
         return ICON[code] || ICON[34];
     }
 
-
     displayedColumns = ['date', 'code', 'high', 'low'];
-    exampleDatabase = new ExampleDatabase(
-        this.httpService.getData('forecast')
-
-     );
+    exampleDatabase = new ExampleDatabase( this.httpService.getData('forecast') );
     dataSource: ExampleDataSource | null;
 
     ngOnInit() {
-
         this.dataSource = new ExampleDataSource(this.exampleDatabase);
     }
-
 }
 
 export interface Forecast {
@@ -86,13 +48,10 @@ export interface Forecast {
 }
 
 export class ExampleDatabase {
-
-
     /** Stream that emits whenever the data has been modified. */
     dataChange: BehaviorSubject<Forecast[]> = new BehaviorSubject<Forecast[]>([]);
 
     constructor(d) {
-        //console.log(d);
         this.dataChange.next(d);
     }
 }
