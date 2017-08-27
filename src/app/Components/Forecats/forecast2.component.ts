@@ -15,19 +15,19 @@ const ICON = {
 };
 
 @Component({
-    selector: 'forecast2',
+    selector: 'wh-forecast2',
     templateUrl: './forecast2.component.html',
     styleUrls: ['./forecast2.component.css']
 })
 export class Forecast2Component {
+
+    days = this.getLocation();
 
     constructor(private httpService: HttpService){ }
 
     getIcon(code:number) {
         return ICON[code] || ICON[34];
     }
-
-    days = this.getLocation();
 
     getLocation() {
         return this.httpService.getData('forecast');

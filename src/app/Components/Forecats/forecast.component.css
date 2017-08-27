@@ -2,9 +2,7 @@
 .example-container {
     display: flex;
     flex-direction: column;
-    max-height: 500px;
     width: 400px;
-    margin-top: 20px;
 }
 
 /*
@@ -26,6 +24,10 @@
 
 .example-cell, .example-header-cell {
     flex: 1;
+
+}
+.mat-cell, .mat-header-cell {
+    text-align: center;
 }
 
 .example-header-cell {

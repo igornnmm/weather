@@ -19,21 +19,21 @@ const ICON = {
 };
 
 @Component({
-    selector: 'forecast',
+    selector: 'wh-forecast',
     templateUrl: './forecast.component.html',
     styleUrls: ['./forecast.component.css']
 })
 export class ForecastComponent {
+
+    displayedColumns = ['date', 'code', 'high', 'low'];
+    exampleDatabase = new ExampleDatabase( this.httpService.getData('forecast') );
+    dataSource: ExampleDataSource | null;
 
     constructor(private httpService: HttpService){ }
 
     getIcon(code:number) {
         return ICON[code] || ICON[34];
     }
-
-    displayedColumns = ['date', 'code', 'high', 'low'];
-    exampleDatabase = new ExampleDatabase( this.httpService.getData('forecast') );
-    dataSource: ExampleDataSource | null;
 
     ngOnInit() {
         this.dataSource = new ExampleDataSource(this.exampleDatabase);

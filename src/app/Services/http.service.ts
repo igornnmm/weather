@@ -10,7 +10,7 @@ export class HttpService {
     constructor(private http: Http) {
     }
 
-    getFactorial(city: string): Promise<object> {
+    getWeather(city: string): Promise<object> {
         let url = 'https://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20weather.forecast%20where%20woeid%20in%20(select%20woeid%20from%20geo.places(1)%20where%20text%3D%22' + city + '%22)&format=json&env=store%3A%2F%2Fdatatables.org%2Falltableswithkeys';
 
         let data = this.http.get(url)
@@ -28,7 +28,7 @@ export class HttpService {
     }
 
     private handleError(error: any): Promise<any> {
-        console.error('An error occurred', error); // for demo purposes only
+        console.error('An error occurred', error);
         return Promise.reject(error.message || error);
     }
 

@@ -2,9 +2,7 @@
 .example-container {
     display: flex;
     flex-direction: column;
-    max-height: 500px;
     width: 400px;
-    margin-top: 20px;
 }
 
 .my-table {
